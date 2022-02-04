@@ -1,14 +1,783 @@
+
 {
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
+  "schema": "applicationMetaSchema.json",
+  "type": "object",
+  "properties": {
+    "imeta_researchTeam": {
+      "properties": {
+        "dcterms_creator": {
+          "properties": {
+            "foaf_name": {
+              "description": "Who is the Principal Investigator/Lead Researcher?",
+              "minLength": 1,
+              "maxLength": 200,
+              "errorMessage": "No more than 200 chars",
+              "uiElementType": "text",
+              "title": "PI/Lead Researcher",
+              "type": "string"
+            },
+            "foaf_organization": {
+              "minLength": 1,
+              "maxLength": 200,
+              "errorMessage": "No more than 200 chars",
+              "description": "What is [name]'s affiliation or place of employment?",
+              "uiElementType": "text",
+              "title": "PI Affiliation",
+              "type": "string"
+            },
+            "foaf_title": {
+              "options": {
+                "label1": "label1",
+                "label2": "label2",
+                "label3": "label3"
+              },
+              "description": "What is [name]'s title?",
+              "uiElementType": "select",
+              "minLength": 1,
+              "maxLength": 200,
+              "errorMessage": "No more than 200 chars",
+              "title": "PI title",
+              "type": "string"
+            },
+            "imeta_email": {
+              "uiElementType": "text",
+              "description": "What is [name]'s email?",
+              "minLength": 1,
+              "maxLength": 200,
+              "errorMessage": "No more than 200 chars",
+              "title": "PI Email",
+              "type": "string"
+            },
+            "foaf_phone": {
+              "minLength": 1,
+              "maxLength": 200,
+              "errorMessage": "No more than 200 chars",
+              "description": "What is [name]'s phone number?",
+              "uiElementType": "text",
+              "title": "PI phone number",
+              "type": "string"
+            },
+            "imeta_citizenship": {
+              "description": "Is [name] a U.S. citizen?",
+              "minLength": 1,
+              "maxLength": 3,
+              "errorMessage": "No more than 3 chars",
+              "uiElementType": "select",
+              "options": {
+                "label1": "label1",
+                "label2": "label2",
+                "label3": "label3"
+              },
+              "title": "PI citizenship",
+              "type": "string"
+            },
+            "imeta_specialSwornStatus": {
+              "description": "Does [name] have active SSS status from the U.S. Census Bureau?",
+              "uiElementType": "select",
+              "options": {
+                "label1": "label1",
+                "label2": "label2",
+                "label3": "label3"
+              },
+              "minLength": 1,
+              "maxLength": 10,
+              "errorMessage": "No more than 10 chars",
+              "title": "PI Special Sworn Status",
+              "type": "string"
+            },
+            "imeta_dataAccess": {
+              "minLength": 1,
+              "maxLength": 3,
+              "errorMessage": "No more than 3 chars",
+              "options": {
+                "label1": "label1",
+                "label2": "label2",
+                "label3": "label3"
+              },
+              "description": "Will [name] access data?",
+              "uiElementType": "select",
+              "title": "PI Data Access",
+              "type": "string"
+            },
+            "imeta_graduateStudent": {
+              "description": "Is [name] a graduate student?",
+              "uiElementType": "select",
+              "options": {
+                "label1": "label1",
+                "label2": "label2",
+                "label3": "label3"
+              },
+              "minLength": 1,
+              "maxLength": 3,
+              "errorMessage": "No more than 3 chars",
+              "title": "PI Graduate Student",
+              "type": "string"
+            },
+            "imeta_graduationDate": {
+              "uiElementType": "date",
+              "description": "What is [name]'s graduation date?",
+              "title": "PI Graduation Date",
+              "type": "string",
+              "errorMessage": "Invalid value."
+            },
+            "imeta_residencyStatus": {
+              "uiElementType": "select",
+              "description": "What is the residency status?",
+              "options": {
+                "label1": "label1",
+                "label2": "label2",
+                "label3": "label3"
+              },
+              "minLength": 1,
+              "maxLength": 3,
+              "errorMessage": "No more than 3 chars",
+              "title": "Residency Status",
+              "type": "string"
+            }
+          },
+          "required": [
+            "foaf_name",
+            "foaf_organization",
+            "foaf_title",
+            "imeta_email",
+            "foaf_phone",
+            "imeta_citizenship",
+            "imeta_specialSwornStatus",
+            "imeta_dataAccess",
+            "imeta_graduateStudent",
+            "imeta_graduationDate",
+            "imeta_residencyStatus"
+          ],
+          "additionalProperties": false,
+          "title": "Principal Investigator",
+          "type": "object"
+        },
+        "imeta_coCreator": {
+          "repeatButtonLabel": "true",
+          "items": {
+            "properties": {
+              "foaf_name": {
+                "description": "Who is the Co-Principal Investigator/Lead Researcher?",
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "uiElementType": "text",
+                "title": "Co-PI/Lead Researcher",
+                "type": "string"
+              },
+              "foaf_organization": {
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "description": "What is [name]'s affiliation or place of employment?",
+                "uiElementType": "text",
+                "title": "Co-PI Affiliation",
+                "type": "string"
+              },
+              "foaf_title": {
+                "uiElementType": "select",
+                "description": "What is [name]'s title?",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "title": "Co-PI Title",
+                "type": "string"
+              },
+              "imeta_email": {
+                "uiElementType": "text",
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "description": "What is [name]'s email?",
+                "title": "Co-PI email",
+                "type": "string"
+              },
+              "foaf_phone": {
+                "description": "What is [name]'s phone number?",
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "uiElementType": "text",
+                "title": "Co-PI phone number",
+                "type": "string"
+              },
+              "imeta_citizenship": {
+                "description": "Is [name] a U.S. citizen?",
+                "uiElementType": "select",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "minLength": 1,
+                "maxLength": 3,
+                "errorMessage": "No more than 3 chars",
+                "title": "Co-PI Citizenship",
+                "type": "string"
+              },
+              "imeta_specialSwornStatus": {
+                "description": "Does [name] have active SSS status from the U.S. Census Bureau?",
+                "uiElementType": "select",
+                "minLength": 1,
+                "maxLength": 10,
+                "errorMessage": "No more than 10 chars",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "title": "CO-PI Special Sworn Status",
+                "type": "string"
+              },
+              "imeta_dataAccess": {
+                "minLength": 1,
+                "maxLength": 3,
+                "errorMessage": "No more than 3 chars",
+                "description": "Will [name] access data?",
+                "uiElementType": "select",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "title": "CO-PI Data Access",
+                "type": "string"
+              },
+              "imeta_graduateStudent": {
+                "description": "Is [name] a graduate student?",
+                "minLength": 1,
+                "maxLength": 3,
+                "errorMessage": "No more than 3 chars",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "uiElementType": "select",
+                "title": "CO-PI Graduate Student",
+                "type": "string"
+              },
+              "imeta_graduationDate": {
+                "uiElementType": "date",
+                "description": "What is [name]'s graduation date?",
+                "title": "CO-PI Graduation Date",
+                "type": "string",
+                "errorMessage": "Invalid value."
+              },
+              "imeta_residencyStatus": {
+                "minLength": 1,
+                "maxLength": 3,
+                "errorMessage": "No more than 3 chars",
+                "description": "What is the residency status?",
+                "uiElementType": "select",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "title": "Residency Status",
+                "type": "string"
+              }
+            },
+            "required": [
+              "foaf_name",
+              "foaf_organization",
+              "foaf_title",
+              "imeta_email",
+              "foaf_phone",
+              "imeta_citizenship",
+              "imeta_specialSwornStatus",
+              "imeta_dataAccess",
+              "imeta_graduateStudent",
+              "imeta_graduationDate",
+              "imeta_residencyStatus"
+            ],
+            "additionalProperties": false
+          },
+          "title": "Co-Principal Investigator",
+          "type": "array"
+        },
+        "dcterms_contributor": {
+          "repeatButtonLabel": "true",
+          "items": {
+            "properties": {
+              "foaf_name": {
+                "description": "Who is the Researcher?",
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "uiElementType": "text",
+                "title": "Researcher",
+                "type": "string"
+              },
+              "foaf_organization": {
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "description": "What is [name]'s affiliation or place of employment?",
+                "uiElementType": "text",
+                "title": "Researcher Affiliation",
+                "type": "string"
+              },
+              "foaf_title": {
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "description": "What is [name]'s title?",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "uiElementType": "select",
+                "title": "Researcher title",
+                "type": "string"
+              },
+              "imeta_email": {
+                "description": "What is [name]'s email?",
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "uiElementType": "text",
+                "title": "Researcher Email",
+                "type": "string"
+              },
+              "foaf_phone": {
+                "minLength": 1,
+                "maxLength": 200,
+                "errorMessage": "No more than 200 chars",
+                "description": "What is [name]'s phone number?",
+                "uiElementType": "text",
+                "title": "Researcher phone number",
+                "type": "string"
+              },
+              "imeta_citizenship": {
+                "minLength": 1,
+                "maxLength": 3,
+                "errorMessage": "No more than 3 chars",
+                "uiElementType": "select",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "description": "Is [name] a U.S. citizen?",
+                "title": "Researcher Citizenship",
+                "type": "string"
+              },
+              "imeta_specialSwornStatus": {
+                "description": "Does [name] have active SSS status from the U.S. Census Bureau?",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "uiElementType": "select",
+                "minLength": 1,
+                "maxLength": 10,
+                "errorMessage": "No more than 10 chars",
+                "title": "Researcher Special Sworn Status",
+                "type": "string"
+              },
+              "imeta_dataAccess": {
+                "uiElementType": "select",
+                "minLength": 1,
+                "maxLength": 3,
+                "errorMessage": "No more than 3 chars",
+                "description": "Will [name] access data?",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "title": "Researcher Data Access",
+                "type": "string"
+              },
+              "imeta_graduateStudent": {
+                "uiElementType": "select",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "minLength": 1,
+                "maxLength": 3,
+                "errorMessage": "No more than 3 chars",
+                "description": "Is [name] a graduate student?",
+                "title": "Researcher Graduate Student",
+                "type": "string"
+              },
+              "imeta_graduationDate": {
+                "uiElementType": "date",
+                "description": "What is [name]'s graduation date?",
+                "title": "Researcher Graduation Date",
+                "type": "string",
+                "errorMessage": "Invalid value."
+              },
+              "imeta_residencyStatus": {
+                "uiElementType": "select",
+                "minLength": 1,
+                "maxLength": 3,
+                "errorMessage": "No more than 3 chars",
+                "options": {
+                  "label1": "label1",
+                  "label2": "label2",
+                  "label3": "label3"
+                },
+                "description": "What is the residency status?",
+                "title": "Residency Status",
+                "type": "string"
+              }
+            },
+            "required": [
+              "foaf_name",
+              "foaf_organization",
+              "foaf_title",
+              "imeta_email",
+              "foaf_phone",
+              "imeta_citizenship",
+              "imeta_specialSwornStatus",
+              "imeta_dataAccess",
+              "imeta_graduateStudent",
+              "imeta_graduationDate",
+              "imeta_residencyStatus"
+            ],
+            "additionalProperties": false
+          },
+          "title": "Researcher",
+          "type": "array"
+        }
+      },
+      "required": [
+        "dcterms_creator"
+      ],
+      "additionalProperties": false,
+      "title": "Research Team",
+      "type": "object"
+    },
+    "imeta_researchDescription": {
+      "properties": {
+        "dcterm_title": {
+          "description": "What is the project's title?",
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "uiElementType": "text",
+          "title": "Project title",
+          "type": "string"
+        },
+        "imeta_duration": {
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "description": "What is the project's duration, in months?  (Info button for maximum durations for each agency)",
+          "uiElementType": "text",
+          "title": "Project duration",
+          "type": "string"
+        },
+        "dcterms_location": {
+          "description": "Where will the data be accessed?  Please mark all that apply.",
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "uiElementType": "select",
+          "options": {
+            "label1": "label1",
+            "label2": "label2",
+            "label3": "label3"
+          },
+          "title": "Work location",
+          "type": "string"
+        },
+        "imeta_funding": {
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "description": "What is the funding source for the project?  Please list any grants, FSRDC funding, university funding, etc.",
+          "uiElementType": "text",
+          "title": "Funding",
+          "type": "string"
+        },
+        "imeta_timeline": {
+          "description": "What is the timeline for completing project tasks?  Please be specific regarding the tasks required to complete your project.  (Provide link to an example).",
+          "minLength": 1,
+          "maxLength": 5000,
+          "errorMessage": "No more than 5000 chars",
+          "uiElementType": "text",
+          "title": "Timeline",
+          "type": "string"
+        },
+        "imeta_softwareRequirements": {
+          "options": {
+            "label1": "label1",
+            "label2": "label2",
+            "label3": "label3"
+          },
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "description": "What statistical software are required to complete this project?",
+          "uiElementType": "select",
+          "title": "Software requirements",
+          "type": "string"
+        },
+        "dcterms_sizeOrDuration": {
+          "minLength": 1,
+          "maxLength": 3800,
+          "errorMessage": "No more than 3800 chars",
+          "description": "Please provide the years of data requested and a justification for the years of data requested for this project, such as why a certain time series is important to the research.",
+          "uiElementType": "text",
+          "title": "Years Requested and Need and Use of Years",
+          "type": "string"
+        },
+        "imeta_dataLinkages": {
+          "description": "Discuss any data linkages planned for the research, including the datasets to be linked.  State whether linkages are at the record level, purpose of the linkage (e.g., geographic/industry context), and basic information on how the linkages are to be performed.",
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "uiElementType": "text",
+          "title": "Data linkages",
+          "type": "string"
+        },
+        "imeta_userProvidedData": {
+          "description": "Please list all datasets you will provide and use for this project.",
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "uiElementType": "text",
+          "title": "User-provided Data",
+          "type": "string"
+        },
+        "imeta_userProvidedDataOwnership": {
+          "options": {
+            "label1": "label1",
+            "label2": "label2",
+            "label3": "label3"
+          },
+          "uiElementType": "select",
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "description": "Please indicate whether [user-provided dataset] is publicly available or proprietary and the source for the data, including website address.",
+          "title": "User-provided Data ownership",
+          "type": "string"
+        },
+        "imeta_userProvidedDataAnonymized": {
+          "uiElementType": "select",
+          "minLength": 1,
+          "maxLength": 10,
+          "errorMessage": "No more than 10 chars",
+          "description": "Will [user-provided dataset] have personal identifiers removed (i.e. anonymized)? (Repeated for each dataset).",
+          "options": {
+            "label1": "label1",
+            "label2": "label2",
+            "label3": "label3"
+          },
+          "title": "User-provided Data Anonymized",
+          "type": "string"
+        },
+        "imeta_userProvidedDataLinkage": {
+          "uiElementType": "select",
+          "minLength": 1,
+          "maxLength": 3,
+          "errorMessage": "No more than 3 chars",
+          "description": "Will [user-provided dataset] be linked to other datasets at the record level, such as person, household, or business? (Repeated for each dataset).",
+          "options": {
+            "label1": "label1",
+            "label2": "label2",
+            "label3": "label3"
+          },
+          "title": "User-provided Data linkage",
+          "type": "string"
+        },
+        "dcterm_description": {
+          "minLength": 1,
+          "maxLength": 120000,
+          "errorMessage": "No more than 120000 chars",
+          "uiElementType": "textarea",
+          "description": "Please provide a project description ",
+          "title": "Project description",
+          "type": "string"
+        },
+        "icpsr_irbDoc": {
+          "uiElementType": "fileUpload",
+          "title": "IRB determination document",
+          "type": "string",
+          "description": "DEFAULT DESCRIPTION",
+          "errorMessage": "Invalid value.",
+          "documentDownloadId": "DEFAULT DOCUMENT ID",
+          "downloadButtonText": "DEFAULT DOWNLOAD BUTTON TEXT",
+          "acceptableFileTypes": [
+            ".pdf"
+          ]
+        },
+        "imeta_expireDate": {
+          "uiElementType": "date",
+          "title": "Date IRB expires",
+          "type": "string",
+          "description": "DEFAULT DESCRIPTION",
+          "errorMessage": "Invalid value."
+        },
+        "imeta_researchQuestion": {
+          "uiElementType": "textarea",
+          "minLength": 1,
+          "maxLength": 150,
+          "errorMessage": "No more than 150 chars",
+          "description": "What is the proposed research question(s) (max 150 words)",
+          "title": "Research Question",
+          "type": "string"
+        },
+        "imeta_scientificSignificance": {
+          "uiElementType": "textarea",
+          "minLength": 1,
+          "maxLength": 500,
+          "errorMessage": "No more than 500 chars",
+          "description": "Describe how this proposed research adds to an existing literature, sparks new avenues of inquiry, or adds to an ongoing discussion within the field of study.  (max 500 words)",
+          "title": "Scientific Significance",
+          "type": "string"
+        },
+        "imeta_demonstratedNeed": {
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "uiElementType": "textarea",
+          "description": "Explain why the research question(s) can only be addressed using restricted-use microdata.",
+          "title": "Demonstrated Need",
+          "type": "string"
+        },
+        "dcterms_reference": {
+          "description": "List any publications references in this proposal, or any other key past works that are of importance to this project.",
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "uiElementType": "textarea",
+          "title": "References/Literature Review",
+          "type": "string"
+        },
+        "imeta_projectScope": {
+          "uiElementType": "textarea",
+          "description": "Briefly describe the study population or universe and how it relates to the research question (max 150 words)",
+          "minLength": 1,
+          "maxLength": 150,
+          "errorMessage": "No more than 150 chars",
+          "title": "Project scope",
+          "type": "string"
+        },
+        "imeta_methodology": {
+          "description": "Explain the methodology that will be used for the project.  The methodology should be clearly stated, be appropriate for the research question(s), and support the approved uses of the data.  Include a description of how the data will be used. (max 1000 words)",
+          "uiElementType": "textarea",
+          "minLength": 1,
+          "maxLength": 1000,
+          "errorMessage": "No more than 1000 chars",
+          "title": "Methodology",
+          "type": "string"
+        },
+        "imeta_projectProducts": {
+          "description": "What are the anticipated papers (such as journal articles), conference presentations, technical memoranda, PhD dissertation, government report, and other expected products for this project.  Please include the names of journals targeted for publication.",
+          "uiElementType": "textarea",
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "title": "Project Products",
+          "type": "string"
+        },
+        "imeta_requestedOutput": {
+          "description": "What is the anticipated output for this project?  This includes regression/modeling output, summary statistics, and any other output you intend to submit for disclosure review.  Include anticipated methods to meet disclosure requirements (e.g., noise infusion).",
+          "uiElementType": "textarea",
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "title": "Requested Output",
+          "type": "string"
+        },
+        "imeta_agencyBenefits": {
+          "minLength": 1,
+          "maxLength": 200,
+          "errorMessage": "No more than 200 chars",
+          "description": "List the proposed benefits for the agency.  Be sure to explain how the proposed work will benefit the agency providing the data.",
+          "uiElementType": "textarea",
+          "title": "Agency Benefits",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dcterm_title",
+        "imeta_duration",
+        "dcterms_location",
+        "imeta_funding",
+        "imeta_timeline",
+        "imeta_softwareRequirements",
+        "dcterms_sizeOrDuration",
+        "imeta_dataLinkages",
+        "imeta_userProvidedData",
+        "imeta_userProvidedDataOwnership",
+        "imeta_userProvidedDataAnonymized",
+        "imeta_userProvidedDataLinkage",
+        "dcterm_description",
+        "icpsr_irbDoc",
+        "imeta_expireDate",
+        "imeta_researchQuestion",
+        "imeta_scientificSignificance",
+        "imeta_demonstratedNeed",
+        "dcterms_reference",
+        "imeta_projectScope",
+        "imeta_methodology",
+        "imeta_projectProducts",
+        "imeta_requestedOutput",
+        "imeta_agencyBenefits"
+      ],
+      "additionalProperties": false,
+      "title": "Research Description",
+      "type": "object"
+    },
+    "imeta_documents": {
+      "repeatButtonLabel": "true",
+      "items": {
+        "properties": {
+          "imeta_supplementalDocument": {
+            "uiElementType": "fileUpload",
+            "title": "Supplemental Document for agency",
+            "type": "string",
+            "description": "DEFAULT DESCRIPTION",
+            "errorMessage": "Invalid value.",
+            "documentDownloadId": "DEFAULT DOCUMENT ID",
+            "downloadButtonText": "DEFAULT DOWNLOAD BUTTON TEXT",
+            "acceptableFileTypes": [
+              ".pdf"
+            ]
+          },
+          "imeta_supplementalDocumentSigned": {
+            "uiElementType": "fileUpload",
+            "title": "Signed Supplemental Document",
+            "type": "string",
+            "description": "DEFAULT DESCRIPTION",
+            "errorMessage": "Invalid value.",
+            "documentDownloadId": "DEFAULT DOCUMENT ID",
+            "downloadButtonText": "DEFAULT DOWNLOAD BUTTON TEXT",
+            "acceptableFileTypes": [
+              ".pdf"
+            ]
+          }
+        },
+        "required": [
+          "imeta_supplementalDocument",
+          "imeta_supplementalDocumentSigned"
+        ],
+        "additionalProperties": false
+      },
+      "title": "Documents",
+      "type": "array"
+    }
+  },
+  "required": [
+    "imeta_researchTeam",
+    "imeta_researchDescription",
+    "imeta_documents"
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  "additionalProperties": false
 }
